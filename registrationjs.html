@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <style>
+        *{
+            box-sizing:unset;
+            align-content: center;
+        }
+        .container{
+            max-width: 300px;
+            margin: auto;
+            background: teal;
+            padding: 20px;
+            color: #fff;
+            font-family: Arial;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        input[type=text],input[type=password]{
+          width: 90%;
+          padding: 5px;
+          font-size: 12px;
+          border-radius: 3px;
+          border: none;
+          outline: none;
+          margin: 8px;
+         }
+        input[type=submit],input[type=reset]{  
+        background: red;
+        color:#fff;
+        font-weight: bold;
+        }
+        input[type=submit]:hover{
+        background: orange;
+        }
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        input[type=submit],input[type=reset]{
+          width: 30%;
+          padding: 5px;
+          font-size: 12px;
+          border-radius: 3px;
+          border: none;
+          outline: none;
+          margin: 8px;
+        }
+        input[type=reset]:hover{
+        background: orange;
+        }
+        
+        </style>
+        <script>
+
+        function validateForm(){
+            var user=document.forms["myForm"]["username"].value;
+            var pass=document.forms["myForm"]["pw"].value;
+            var email=document.forms["myForm"]["email"].value;
+            var no=document.forms["myForm"]["Phno"].value;
+
+            if(user=="")
+            {
+                alert("username required");
+                return false;
+            }
+            if(pass=="")
+            {
+                alert("password required");
+                return false;
+ 
+            }
+            if(pass.length<8)
+            {
+                alert("Password should be greater than 8 digits or 8 characters")
+                return false;
+            }
+            if(email=="")
+            {
+                alert("Email id is compulsory for verification");
+                return false;
+ 
+            }
+            if(no=="")
+            {
+                alert("Phone no is empty");
+                return false;
+ 
+            }
+            if((no.length<10)||(no.length>10))
+            {
+                alert("Enter valid 10 digit mobile no");
+                return false;
+
+            }
+           
+        }
+        
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Registration</h2>
+            <form name="myForm" action="submit.html" onsubmit="return validateForm()" method="post">
+            <input type="text" name="username" placeholder="Username"><br>
+            <input type="text" name="email" placeholder="Email"><br>
+            <input type="password" name="pw" placeholder="Password"><br>
+            <input type="text" name="Phno" placeholder="Phone"><br>
+            <input type="text" name="dob" placeholder="Date of Birth"><br>
+            Gender:
+            <input type="radio" name="gender" value="Male">Male
+            <input type="radio" name="gender" value="Female">Female<br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear"><br>
+            <p><a href="#">Forget your Password?</a></p>
+
+            </form>
+        </div>
+    </body>
+</html>
